@@ -1,8 +1,9 @@
-﻿using LMA25_V2.Interfaces;
+﻿using Interrfaces;
+using LMA25_V2.Interfaces;
 
 namespace LMA25_V2.Models
 {
-    public class Joke
+    public class Joke : IJoke
     {
         public enum JokeType
         {
@@ -20,5 +21,9 @@ namespace LMA25_V2.Models
             Type = type;
         }
 
+        string IJoke.GetType()
+        {
+            return Type.ToString();
+        }
     }
 }
