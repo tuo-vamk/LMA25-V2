@@ -81,7 +81,6 @@
 	  <ProjectReference Include="..\Interrfaces\Interrfaces.csproj" />
 	  <ProjectReference Include="..\JokaApiDevServices\JokaApiDevServices.csproj" />
 	  <ProjectReference Include="..\Models\Models.csproj" />
-	  <ProjectReference Include="..\Persistence\Persistence.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
