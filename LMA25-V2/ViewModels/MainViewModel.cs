@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LMA25_V2.Interfaces;
+using LMA25_V2.Models;
 using LMA25_V2.Pages;
 
 namespace LMA25_V2.ViewModels;
@@ -25,13 +26,14 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private async Task<string> GetJokeAsync()
     {
-        var joke = await _jokeService.GetJokeAsync();
-        List<IPrintable> jokes = await _jokeService.GetJokesAsync(3);
-        foreach (var j in jokes)
+        var result = await _jokeService.GetJokeAsync();
+
+        if(result.IsSuccess == false)
         {
-            System.Diagnostics.Debug.WriteLine(j.ToString());
+            JokeText = result.ErrorMessage ?? "Unknown Error!";
         }
-        JokeText = joke.ToString() ?? "";
+
+        JokeText = result.Data?.Print() ?? "Unknown Error!";
         return JokeText;
     }
 }

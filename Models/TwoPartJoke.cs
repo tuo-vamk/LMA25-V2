@@ -2,7 +2,7 @@
 
 namespace LMA25_V2.Models
 {
-    internal class TwoPartJoke : IPrintable
+    public class TwoPartJoke : IPrintable
     {
         private readonly Joke _joke;
         public string Setup { get; set; } = "";
@@ -12,9 +12,10 @@ namespace LMA25_V2.Models
         {
             _joke = joke;
         }
-        public override string ToString()
+
+        public string Print()
         {
-            return $"{Setup} --- {Delivery}";
+            return $"{_joke.Type.ToString()}: {Setup} --- {Delivery}";
         }
     }
 }

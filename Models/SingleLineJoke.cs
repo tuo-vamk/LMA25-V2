@@ -2,7 +2,7 @@
 
 namespace LMA25_V2.Models
 {
-    internal class SingleLineJoke : IPrintable
+    public class SingleLineJoke : IPrintable
     {
         private readonly Joke _joke;
         public string Text { get; set; } = "";
@@ -12,10 +12,9 @@ namespace LMA25_V2.Models
             _joke = joke;
         }
 
-        public override string ToString()
+        public string Print()
         {
-            return $"{Text}";
+            return $"{_joke.Type.ToString()}: {Text}";
         }
-
     }
 }
